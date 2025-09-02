@@ -1,27 +1,13 @@
 import './App.css'
-import HelloWord from './components/HelloWord';
-
-let cont = 0;
-
-function MeuButao(){
-  function ClicouBotao (a) {
-      return(
-        a++
-      );
-  }
-
-  return (
-    <button onClick={ClicouBotao(cont)}>{cont}</button>
-  );
-}
-
+import Box from './components/Box';
+import Cabecalho from './components/Cabecalho';
 
 function App() {
   
   return (
     <>
-      <HelloWord />
-      <MeuButao />
+      <Cabecalho />
+      <Box />
     </>
   );
 }
