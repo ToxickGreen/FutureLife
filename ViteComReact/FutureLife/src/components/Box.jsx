@@ -17,10 +17,6 @@ function Box() {
                     <h2>{saldo}</h2>
 
                 </div>
-
-            
-
-
             </div>
         </>
     );
