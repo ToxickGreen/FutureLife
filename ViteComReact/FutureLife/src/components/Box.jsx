@@ -4,18 +4,33 @@ function Box() {
     let saldo = entrada - saida;
     return(
         <>
-            <div id = "AreaDeContas">
-                <div class = "compcontas">
-                    <h2>{entrada}</h2>
+            <div id = "info">
+                <div id = "infoentra">
+                    <p>Entrada</p>
+                </div>
+                
+                <div id = "infosai">
+                    <p>Saída</p>
                 </div>
 
-                <div class = "compcontas">
-                    <h2>{saida}</h2>
+                <div id = "infosaldo">
+                    <p>Saldo</p>
                 </div>
+                    
+            </div>
 
-                <div class = "compcontas">
-                    <h2>{saldo}</h2>
-
+            <div id = "CentralizarContas">
+                <div id = "AreaDeContas">
+                
+                    <div class = "compcontas">
+                        <h2>R${entrada}</h2>
+                    </div>
+                    <div class = "compcontas">
+                        <h2>R${saida}</h2>
+                    </div>
+                    <div class = "compcontas">
+                        <h2>R${saldo}</h2>
+                    </div>
                 </div>
             </div>
         </>
