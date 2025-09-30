@@ -9,6 +9,7 @@ function Lista({ list, setList }) {
     if (!desc || !valor) return;
 
     const novo = {
+      id: list.length + 1,
       data: new Date().toLocaleDateString("pt-BR"),
       desc,
       valor: Number(valor),
@@ -20,6 +21,13 @@ function Lista({ list, setList }) {
     setDesc("");
     setValor("");
   };
+
+
+  function deleteItem(id){
+    const listData = [...list]
+    const newList = listData.filter((item) => item.id !== id )
+    setList(newList)
+  }
 
   return (
     <>
@@ -59,16 +67,16 @@ function Lista({ list, setList }) {
         <button onClick={itemLista}>Enviar</button>
       </div>
 
-      <div id="ListaCorpo">
-        <ul>
+    <div id="ListaContainer">
+        <ul id="ListaCorpo">
           {list.map((item, index) => (
-            <li key={index}>
-              <input type="checkbox" checked={item.marcada} readOnly />
-              {item.data} - {item.desc} - R${item.valor} ({item.tipo})
+            <li key={item.id}>
+              {item.data} - R${item.valor} - ({item.tipo}) -  {item.desc} 
+              <button onClick= {() => deleteItem(item.id)} >Delete</button>
             </li>
           ))}
         </ul>
-      </div>
+  </div>
     </>
   );
 }

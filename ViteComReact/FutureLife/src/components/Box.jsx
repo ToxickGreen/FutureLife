@@ -4,7 +4,9 @@ function Box({ list }) {
     .reduce((acc, item) => acc + item.valor, 0);
 
   const saida = list
-    .filter(item => item.tipo === "saida")
+    .filter(function(item) {
+      return item.tipo === "saida"
+    })
     .reduce((acc, item) => acc + item.valor, 0);
 
   const saldo = entrada - saida;
