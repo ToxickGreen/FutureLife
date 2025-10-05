@@ -13,28 +13,25 @@ function Box({ list }) {
 
   return (
     <>
-      <div id="info">
-        <div id="infoentra">
-          <p>Entrada</p>
-        </div>
-        <div id="infosai">
-          <p>Saída</p>
-        </div>
-        <div id="infosaldo">
-          <p>Saldo</p>
-        </div>
-      </div>
+      <div className="centralizaItensBox">
+        <div id="CentralizarContas">
+          <div id="AreaDeContas">
 
-      <div id="CentralizarContas">
-        <div id="AreaDeContas">
-          <div className="compcontas">
-            <h2>R${entrada}</h2>
-          </div>
-          <div className="compcontas">
-            <h2>R${saida}</h2>
-          </div>
-          <div className="compcontas">
-            <h2>R${saldo}</h2>
+            <div className="compcontas">
+              <p className="tituloConta">Entrada</p>
+              <h2 className="valorConta">R${entrada}</h2>
+            </div>
+
+            <div className="compcontas">
+              <p className="tituloConta">Saída</p>
+              <h2 className="valorConta">R${saida}</h2>
+            </div>
+
+            <div className="compcontas">
+              <p className="tituloConta">Saldo</p>
+              <h2 className="valorConta">R${saldo}</h2>
+            </div>
+
           </div>
         </div>
       </div>

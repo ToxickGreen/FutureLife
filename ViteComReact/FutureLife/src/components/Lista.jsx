@@ -33,6 +33,7 @@ function Lista({ list, setList }) {
     <>
       <div id="adicionar">
         <h1>Adicionar Entrada</h1>
+       <div id="itensAdicionar">
         <label>
           <input
             type="radio"
@@ -77,8 +78,10 @@ function Lista({ list, setList }) {
           ))}
         </ul>
   </div>
+  </div>
     </>
-  );
+   
+  ); 
 }
 
 export default Lista;
