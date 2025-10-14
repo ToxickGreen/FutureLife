@@ -24,8 +24,8 @@ function App() {
   return (
     <>
       <Cabecalho />
-      <Box list={list} />   {/* passa a lista pro Box */}
-      <Lista list={list} setList={updateList} /> {/* passa list e setList pra Lista */}
+      <Box list={list} />
+      <Lista list={list} setList={updateList} /> 
     </>
   );
 }

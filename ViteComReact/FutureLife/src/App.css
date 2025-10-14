@@ -171,3 +171,58 @@ ul{
 #itensAdicionar button:hover {
   background-color: #049a24;
 }
+
+
+@media (max-width: 1150px) {
+  #logo {
+    font-size: 64px;
+  }
+
+  #AreaDeContas {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 0 40px;
+  }
+
+.compcontas {
+  width: 800px;
+  height: 80px;
+  border-radius: 160px;
+  padding: 20px;
+  text-align: center;
+}
+
+  .tituloConta {
+    font-size: 48px;
+  }
+
+  .valorConta {
+    font-size: 44px;
+  }
+
+  #itensAdicionar {
+    height: 120px;
+    gap:12px;
+    font-size: 32px;
+  }
+
+  #adicionar {
+    font-size: 32px;
+  }
+
+  input {
+    height: 25px;
+    font-size: 20px !important;
+  }
+
+  #enviar{
+    font-size: 24px;
+    width: 200px;
+    height: 50px;
+  }
+
+  input::placeholder{
+    font-size: 20px;
+  }
+}

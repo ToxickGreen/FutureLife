@@ -64,11 +64,11 @@ function Lista({ list, setList }) {
           placeholder="valor"
           value={valor}
           onChange={(e) => setValor(e.target.value)}
-        />
-        <button onClick={itemLista}>Enviar</button>
+          />
+        <button onClick={itemLista} id="enviar">Enviar</button>
       </div>
 
-    <div id="ListaContainer">
+    {list.length>0 && <div id="ListaContainer">
         <ul id="ListaCorpo">
           {list.map((item, index) => (
             <li key={item.id}>
@@ -77,7 +77,7 @@ function Lista({ list, setList }) {
             </li>
           ))}
         </ul>
-  </div>
+  </div>}
   </div>
     </>
    
