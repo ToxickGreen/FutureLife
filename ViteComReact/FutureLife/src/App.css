@@ -1,6 +1,8 @@
 #root {
   margin: 0 auto;
   text-align: center;
+  box-sizing: border-box;
+
 }
 
 
@@ -43,7 +45,7 @@ input[type=number] {
   padding: 10px;
 }
 
-/* Título dentro do card */
+
 .tituloConta {
   font-size: 22px;
   font-weight: 600;
@@ -51,7 +53,7 @@ input[type=number] {
   margin: 0;
 }
 
-/* Valor dentro do card */
+
 .valorConta {
   font-size: 28px;
   font-weight: 700;
@@ -102,24 +104,48 @@ p{
 }
 
 
-#ListaContainer{
-  width: 100%;
-  max-width: 880px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  margin: 24px auto;
-}
-
-#ListaCorpo{
+#itensAdicionar,
+#ListaContainer {
+  width: 880px;
+  margin: 30px auto;
+  padding: 15px;
+  box-sizing: border-box;
   background-color: #fff;
-  padding: 12px 16px;
-  display:flex ;
-  flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  gap: 10px;
-  
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+  border-radius: 8px;
 }
 
+#ListaCorpo {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#ListaCorpo li {
+  display: flex;
+  align-items: center;
+  gap: 20px;     
+  width: 100%;
+  padding: 10px 0;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+}
+
+#ListaCorpo li span {
+  flex: 1;      
+  text-align: center;
+}
+
+#ListaCorpo li button {
+  flex: 0;         
+  width: 100px;   
+  background-color: #e91e63;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
 ul{
   padding: 0;
   margin: 0;

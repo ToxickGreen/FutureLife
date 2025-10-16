@@ -70,10 +70,13 @@ function Lista({ list, setList }) {
 
     {list.length>0 && <div id="ListaContainer">
         <ul id="ListaCorpo">
-          {list.map((item, index) => (
+          {list.map((item) => (
             <li key={item.id}>
-              {item.data} - R${item.valor} - ({item.tipo}) -  {item.desc} 
-              <button onClick= {() => deleteItem(item.id)} >Delete</button>
+                <span>{item.data}</span>
+                <span>R${item.valor}</span>
+                <span>({item.tipo})</span>
+                <span>{item.desc}</span>
+              <button onClick={() => deleteItem(item.id)}>Delete</button>
             </li>
           ))}
         </ul>
