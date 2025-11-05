@@ -1,3 +1,6 @@
+import BtEntradaPequeno from './img/BtEntradaPequeno.png';
+import BtSaidaPequeno from './img/BtSaidaPequeno.png';
+
 function Box({ list }) {
   const entrada = list
     .filter(item => item.tipo === "entrada")
@@ -16,21 +19,27 @@ function Box({ list }) {
       <div className="centralizaItensBox">
         <div id="CentralizarContas">
           <div id="AreaDeContas">
-
-            <div className="compcontas">
-              <p className="tituloConta">Entrada</p>
-              <h2 className="valorConta">R${entrada}</h2>
+            <div id="entr">
+              <img src={BtEntradaPequeno} />
+                <div className="compcontas">
+                  <p className="tituloConta">Entrada</p>
+                  <h2 className="valorConta">R${entrada}</h2>
+                </div>
             </div>
-
-            <div className="compcontas">
-              <p className="tituloConta">Saída</p>
-              <h2 className="valorConta">R${saida}</h2>
+            <div id="saida">
+              <img src={BtSaidaPequeno} />
+              <div className="compcontas">
+                <p className="tituloConta">Saída</p>
+                <h2 className="valorConta">R${saida}</h2>
+              </div>
             </div>
-
-            <div className="compcontas">
-              <p className="tituloConta">Saldo</p>
-              <h2 className="valorConta">R${saldo}</h2>
+            <div id="saldo">
+              <div className="compcontas">
+                <p className="tituloConta">Saldo</p>
+                <h2 className="valorConta">R${saldo}</h2>
+              </div>
             </div>
+            
 
           </div>
         </div>

@@ -1,18 +1,13 @@
-import logoMoedas from './img/moedas-logo.png';
+import logoPequena from './img/logoPequena.png';
 import '../App.css';
 function Cabecalho () {
     return(
         <>
             <div id = "Cabecalho">
-                <div>  <p id = "logo">FutureLife</p></div>
-              
-                <div>
-                < img src={logoMoedas} alt="moedas" id="logomoedas" />
-                </div>
-              
+                <div>  <img id = "logo" src={logoPequena} ></img></div>
             </div>
              
-        </>
+        </> 
     );
 
 }

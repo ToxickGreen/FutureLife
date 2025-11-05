@@ -1,8 +1,20 @@
+@font-face {
+  font-family: 'Lato';
+  src: url(./components/fonts/Lato-Regular.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url(./components/fonts/RobotoFlex.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
 #root {
   margin: 0 auto;
   text-align: center;
   box-sizing: border-box;
-
 }
 
 
@@ -93,8 +105,9 @@ html{
 }
 
 body{
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
+  overflow-x: hidden; 
 }
 
 p{
@@ -200,55 +213,80 @@ ul{
 
 
 @media (max-width: 1150px) {
-  #logo {
-    font-size: 64px;
+  #Cabecalho{
+    width: 100%;
+    height: 336px;
+    
   }
 
-  #AreaDeContas {
+  #logo{
+    margin-bottom: 64px;
+  }
+  
+
+  #AreaDeContas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    background-color: rgb(255, 255, 255);
+    min-width: 824px;
+    min-height: 380px;
+    margin-top: -150px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 32px rgba(0,0,0,0.3); 
+    color: black;
+  }
+
+  .compcontas{
+    all: unset;
+    display: flex;
+    flex-direction: column-reverse;
+    
+  }
+
+  #entr{
+    order: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 88px;
+  }
+  #saida{
+    order: 3;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 88px;
+  }
+  #saldo{
+    order: 2;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 20px 0 40px;
+    margin-bottom: 176px;
+    
   }
-
-.compcontas {
-  width: 800px;
-  height: 80px;
-  border-radius: 160px;
-  padding: 20px;
-  text-align: center;
-}
-
-  .tituloConta {
-    font-size: 48px;
+  #saldo .compcontas {
+    all: unset;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
   }
-
-  .valorConta {
-    font-size: 44px;
+  .tituloConta{
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 40px;
   }
-
-  #itensAdicionar {
-    height: 120px;
-    gap:12px;
+  .valorConta{
+    font-family: Lato;
+    font-weight: bold;
     font-size: 32px;
   }
 
-  #adicionar {
-    font-size: 32px;
-  }
-
-  input {
-    height: 25px;
-    font-size: 20px !important;
-  }
-
-  #enviar{
-    font-size: 24px;
-    width: 200px;
-    height: 50px;
-  }
-
-  input::placeholder{
-    font-size: 20px;
+  #saldo .valorConta{
+    all: unset;
+    font-family: Lato;
+    font-size: 64px;
+    font-weight: bold;
+    color: rgba(91, 224, 120, 100);
   }
 }
