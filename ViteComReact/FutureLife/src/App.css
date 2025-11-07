@@ -6,7 +6,7 @@
 }
 @font-face {
   font-family: 'Roboto';
-  src: url(./components/fonts/RobotoFlex.ttf);
+  src: url(./components/fonts/RobotoFlexBold.ttf);
   font-weight: normal;
   font-style: normal;
 }
@@ -288,5 +288,29 @@ ul{
     font-size: 64px;
     font-weight: bold;
     color: rgba(91, 224, 120, 100);
+  }
+
+  #titleList{
+    font-size: 72px;
+    font-family: Roboto;
+    font-weight: bold;
+    margin-bottom: 4px;
+  }
+  #adicionar{
+    margin-top: -32px;
+  }
+  /*aba para adicionar valores*/
+  #itensAdicionar{
+    all: unset;
+    display: block;
+  }
+  #ListaContainer{
+    min-height: 824px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 48px rgb(155, 155, 155);
+  }
+  #infoL{
+    color: #0000007c;
+    font-family: Lato;
   }
 }

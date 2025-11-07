@@ -4,6 +4,12 @@ function Lista({ list, setList }) {
   const [desc, setDesc] = useState("");
   const [valor, setValor] = useState("");
   const [tipo, setTipo] = useState("entrada");
+  let listInfo;
+  if (list.length == 0) {
+            listInfo = true;
+          }else{
+            listInfo = false;
+          };
 
   const itemLista = () => {
     if (!desc || !valor) return;
@@ -32,7 +38,7 @@ function Lista({ list, setList }) {
   return (
     <>
       <div id="adicionar">
-        <h1>Adicionar Entrada</h1>
+        <h1 id="titleList">Histórico</h1>
        <div id="itensAdicionar">
         <label>
           <input
@@ -68,8 +74,10 @@ function Lista({ list, setList }) {
         <button onClick={itemLista} id="enviar">Enviar</button>
       </div>
 
-    {list.length>0 && <div id="ListaContainer">
+    <div id="ListaContainer">
         <ul id="ListaCorpo">
+          {listInfo && <h1 id="infoL">Ainda vazio!</h1>}
+          
           {list.map((item) => (
             <li key={item.id}>
                 <span>{item.data}</span>
@@ -80,7 +88,7 @@ function Lista({ list, setList }) {
             </li>
           ))}
         </ul>
-  </div>}
+  </div>
   </div>
     </>
    
