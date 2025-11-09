@@ -35,7 +35,7 @@ function Lista({ list, setList }) {
         <h1 id="titleList">Histórico</h1>
 
         <div id="itensAdicionar">
-          {/* inputs lado a lado */}
+     
           <div className="inputs-lado-a-lado">
             <input
               className="text-input"
@@ -53,7 +53,7 @@ function Lista({ list, setList }) {
             />
           </div>
 
-          {/* radios e botão */}
+        
           <div className="radios-botao">
             <label>
               <input

@@ -163,7 +163,6 @@ ul {
   margin-bottom: 150px;
 }
 
-/* ===== ÁREA DE ADIÇÃO ===== */
 #itensAdicionar {
   display: flex;
   flex-direction: column;
@@ -178,7 +177,6 @@ ul {
   border-radius: 8px;
 }
 
-/* inputs lado a lado */
 .inputs-lado-a-lado {
   display: flex;
   justify-content: center;
@@ -202,7 +200,6 @@ ul {
   box-shadow: 0 0 4px rgba(0, 126, 27, 0.5);
 }
 
-/* radios + botão */
 .radios-botao {
   display: flex;
   align-items: center;
@@ -233,7 +230,7 @@ ul {
   background-color: #049a24;
 }
 
-/* ===== RESPONSIVIDADE ===== */
+/* RESPONSIVIDADE */
 @media (max-width: 1150px) {
   #Cabecalho {
     width: 100%;
