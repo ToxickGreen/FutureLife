@@ -17,18 +17,17 @@
   box-sizing: border-box;
 }
 
-
+/* Remove setinhas do input number */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-
 input[type=number] {
   -moz-appearance: textfield;
 }
 
+/* Centralização geral */
 .centralizaItensBox {
   text-align: center;
   display: flex;
@@ -45,7 +44,7 @@ input[type=number] {
 
 /* Card */
 .compcontas {
-  background-color: rgb(255, 255, 255);
+  background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   width: 279px;
@@ -57,7 +56,6 @@ input[type=number] {
   padding: 10px;
 }
 
-
 .tituloConta {
   font-size: 22px;
   font-weight: 600;
@@ -65,58 +63,53 @@ input[type=number] {
   margin: 0;
 }
 
-
 .valorConta {
   font-size: 28px;
   font-weight: 700;
   margin: 5px 0 0 0;
 }
 
-
+/* Cabeçalho */
 #Cabecalho {
   background-color: #007e1b;
-  height: 145px;          
-  display: flex;             
-  align-items: center;       
-  justify-content: center;  
-  margin: 0;                 
-  padding: 0 20px;           
-  box-sizing: border-box;    
+  height: 145px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 #logo {
-  font-family:'roboto';
-  font-size: 40px;                  
+  font-family: 'Roboto';
+  font-size: 40px;
   color: white;
-  font-weight: 700;              
-  margin: 0; 
+  font-weight: 700;
+  margin: 0;
 }
 
 #logomoedas {
-  height: 140px;  
-  width: auto; 
+  height: 140px;
+  width: auto;
 }
 
-
-
-html{
-  background-color: rgb(255, 255, 255);;
-
+html {
+  background-color: #ffffff;
 }
 
-body{
+body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
-p{
+p {
   margin-top: 0;
   margin-bottom: 0;
-
 }
 
-
+/* Containers */
 #itensAdicionar,
 #ListaContainer {
   width: 880px;
@@ -124,10 +117,11 @@ p{
   padding: 15px;
   box-sizing: border-box;
   background-color: #fff;
-  box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
 }
 
+/* Lista */
 #ListaCorpo {
   padding: 0;
   margin: 0;
@@ -137,7 +131,7 @@ p{
 #ListaCorpo li {
   display: flex;
   align-items: center;
-  gap: 20px;     
+  gap: 20px;
   width: 100%;
   padding: 10px 0;
   background-color: #f9f9f9;
@@ -145,13 +139,13 @@ p{
 }
 
 #ListaCorpo li span {
-  flex: 1;      
+  flex: 1;
   text-align: center;
 }
 
 #ListaCorpo li button {
-  flex: 0;         
-  width: 100px;   
+  flex: 0;
+  width: 100px;
   background-color: #e91e63;
   color: #fff;
   border: none;
@@ -159,130 +153,159 @@ p{
   padding: 6px 12px;
   cursor: pointer;
 }
-ul{
+
+/* Reset UL */
+ul {
   padding: 0;
   margin: 0;
   list-style: none;
   border-bottom: 1 solid green;
   margin-bottom: 150px;
-   
 }
 
+/* ===== ÁREA DE ADIÇÃO ===== */
 #itensAdicionar {
   display: flex;
-  flex-wrap: wrap;       
+  flex-direction: column;
   align-items: center;
-  justify-content: center; 
-  gap: 50px;              
+  gap: 15px;
   margin-top: 60px;
-  padding: 15px 0px;
+  padding: 20px;
   background-color: #fff;
   max-width: 880px;
   margin: 30px auto;
-   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+/* inputs lado a lado */
+.inputs-lado-a-lado {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* quebra em telas pequenas */
+  width: 100%;
+}
+
+.text-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 300px;
+  transition: all 0.2s ease;
+}
+
+.text-input:focus {
+  border-color: #007e1b;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 126, 27, 0.5);
+}
+
+/* radios + botão */
+.radios-botao {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
 }
 
 #itensAdicionar label {
   display: flex;
   align-items: center;
-  gap: 5px; 
+  gap: 5px;
   font-weight: 500;
-}
-
-#itensAdicionar input[type="text"],
-#itensAdicionar input[type="number"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
 }
 
 #itensAdicionar button {
   background-color: #007e1b;
   color: white;
   border: none;
-  padding: 8px 16px;
+  padding: 10px 20px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.3s ease;
 }
 
 #itensAdicionar button:hover {
   background-color: #049a24;
 }
 
-
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1150px) {
-  #Cabecalho{
+  #Cabecalho {
     width: 100%;
     height: 336px;
-    
   }
 
-  #logo{
+  #logo {
     margin-bottom: 64px;
   }
-  
 
-  #AreaDeContas{
+  #AreaDeContas {
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     min-width: 824px;
     min-height: 380px;
     margin-top: -150px;
     border-radius: 12px;
-    box-shadow: 0px 8px 32px rgba(0,0,0,0.3); 
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
     color: black;
   }
 
-  .compcontas{
+  .compcontas {
     all: unset;
     display: flex;
     flex-direction: column-reverse;
-    
   }
 
-  #entr{
+  #entr {
     order: 1;
     display: flex;
     align-items: center;
     gap: 12px;
     margin-top: 88px;
   }
-  #saida{
+
+  #saida {
     order: 3;
     display: flex;
     align-items: center;
     gap: 12px;
     margin-top: 88px;
   }
-  #saldo{
+
+  #saldo {
     order: 2;
     display: flex;
     flex-direction: column;
     margin-bottom: 176px;
-    
   }
+
   #saldo .compcontas {
     all: unset;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
   }
-  .tituloConta{
+
+  .tituloConta {
     font-family: Roboto;
     font-weight: bold;
     font-size: 40px;
   }
-  .valorConta{
+
+  .valorConta {
     font-family: Lato;
     font-weight: bold;
     font-size: 32px;
   }
 
-  #saldo .valorConta{
+  #saldo .valorConta {
     all: unset;
     font-family: Lato;
     font-size: 64px;
@@ -290,26 +313,33 @@ ul{
     color: rgba(91, 224, 120, 100);
   }
 
-  #titleList{
+  #titleList {
     font-size: 72px;
     font-family: Roboto;
     font-weight: bold;
     margin-bottom: 4px;
   }
-  #adicionar{
+
+  #adicionar {
     margin-top: -32px;
   }
-  /*aba para adicionar valores*/
-  #itensAdicionar{
+
+  #itensAdicionar {
     all: unset;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
   }
-  #ListaContainer{
+
+  #ListaContainer {
     min-height: 824px;
     border-radius: 12px;
     box-shadow: 0px 8px 48px rgb(155, 155, 155);
   }
-  #infoL{
+
+  #infoL {
     color: #0000007c;
     font-family: Lato;
   }
