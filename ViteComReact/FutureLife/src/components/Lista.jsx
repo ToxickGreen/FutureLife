@@ -1,4 +1,5 @@
 import { useState } from "react";
+import botaoflut from './img/btnflut.png';
 
 function Lista({ list, setList }) {
   const [desc, setDesc] = useState("");
@@ -35,25 +36,27 @@ function Lista({ list, setList }) {
         <h1 id="titleList">Histórico</h1>
 
         <div id="itensAdicionar">
-     
+
+
           <div className="inputs-lado-a-lado">
+          
             <input
-              className="text-input"
-              type="text"
-              placeholder="descrição"
-              value={desc}
-              onChange={(e) => setDesc(e.target.value)}
-            />
-            <input
-              className="text-input"
+              className="input-valor"
               type="number"
               placeholder="valor"
               value={valor}
               onChange={(e) => setValor(e.target.value)}
             />
+              <input
+              className="input-descricao"
+              type="text"
+              placeholder="descrição"
+              value={desc}
+              onChange={(e) => setDesc(e.target.value)}
+            />
           </div>
 
-        
+          {/* radios e botão */}
           <div className="radios-botao">
             <label>
               <input
@@ -74,13 +77,18 @@ function Lista({ list, setList }) {
               />
               Saída
             </label>
-
-            <button onClick={itemLista} id="enviar">
+           <button onClick={itemLista} id="enviar">
               Enviar
             </button>
-          </div>
+           
+          </div>            
+                <img src={botaoflut} alt="botao-verde-de-adicionar" class="btnflut"/>
+
         </div>
 
+
+
+           
         <div id="ListaContainer">
           <ul id="ListaCorpo">
             {listInfo && <h1 id="infoL">Ainda vazio!</h1>}

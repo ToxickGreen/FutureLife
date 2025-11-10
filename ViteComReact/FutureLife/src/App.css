@@ -163,6 +163,7 @@ ul {
   margin-bottom: 150px;
 }
 
+/* ===== ÁREA DE ADIÇÃO ===== */
 #itensAdicionar {
   display: flex;
   flex-direction: column;
@@ -177,6 +178,7 @@ ul {
   border-radius: 8px;
 }
 
+/* inputs lado a lado */
 .inputs-lado-a-lado {
   display: flex;
   justify-content: center;
@@ -200,6 +202,7 @@ ul {
   box-shadow: 0 0 4px rgba(0, 126, 27, 0.5);
 }
 
+/* radios + botão */
 .radios-botao {
   display: flex;
   align-items: center;
@@ -230,7 +233,7 @@ ul {
   background-color: #049a24;
 }
 
-/* RESPONSIVIDADE */
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1150px) {
   #Cabecalho {
     width: 100%;
@@ -319,17 +322,82 @@ ul {
 
   #adicionar {
     margin-top: -32px;
+  
   }
+#itensAdicionar {
+  all: unset;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  width: 600px;
+  height: 300px;
+  box-shadow: 0px 3px 20px rgb(155, 155, 155);
+  border-radius: 15px;
+  z-index: 10;
+  padding: 20px;
+}
 
-  #itensAdicionar {
-    all: unset;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    font-weight: 500;
-  }
+.inputs-lado-a-lado {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
 
+.input-valor,
+.input-descricao {
+  height: 42px;
+  padding: 0 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.input-valor {
+  width: 150px;
+}
+
+.input-descricao {
+  width: 200px;
+}
+
+.radios-botao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+#itensAdicionar label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#enviar {
+  border-radius: 21px;
+  width: 95px;
+  height: 42px;
+  background-color: #007e1b;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.btnflut{
+  width: 57px;
+  position: fixed;
+}
   #ListaContainer {
     min-height: 824px;
     border-radius: 12px;
