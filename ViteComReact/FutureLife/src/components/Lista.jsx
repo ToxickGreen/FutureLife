@@ -1,10 +1,11 @@
 import { useState } from "react";
-import botaoflut from './img/btnflut.png';
+import BotaoAdicionar from './img/BotaoAdicionar.png';
 
 function Lista({ list, setList }) {
   const [desc, setDesc] = useState("");
   const [valor, setValor] = useState("");
   const [tipo, setTipo] = useState("entrada");
+  const [aberto, setAberto] = useState(false);
 
   const listInfo = list.length === 0;
 
@@ -23,6 +24,8 @@ function Lista({ list, setList }) {
     setList([...list, novo]);
     setDesc("");
     setValor("");
+
+    setAberto(false);
   };
 
   function deleteItem(id) {
@@ -35,25 +38,28 @@ function Lista({ list, setList }) {
       <div id="adicionar">
         <h1 id="titleList">Histórico</h1>
 
-        <div id="itensAdicionar">
-
-
+        <div id="itensAdicionar" className={aberto ? "aberto" : ""}>
           <div className="inputs-lado-a-lado">
-          
-            <input
+            <div class="campo">
+              <h1>Valor</h1>
+              <input
               className="input-valor"
               type="number"
-              placeholder="valor"
               value={valor}
               onChange={(e) => setValor(e.target.value)}
             />
+            </div>
+
+            
+            <div class="campo">
+              <h1>Descrição</h1>
               <input
               className="input-descricao"
               type="text"
-              placeholder="descrição"
               value={desc}
               onChange={(e) => setDesc(e.target.value)}
             />
+            </div>
           </div>
 
           {/* radios e botão */}
@@ -68,7 +74,7 @@ function Lista({ list, setList }) {
               Entrada
             </label>
 
-            <label style={{ marginLeft: "10px" }}>
+            <label>
               <input
                 type="radio"
                 value="saida"
@@ -77,18 +83,11 @@ function Lista({ list, setList }) {
               />
               Saída
             </label>
-           <button onClick={itemLista} id="enviar">
+          </div>
+          <button onClick={itemLista} id="enviar">
               Enviar
             </button>
-           
-          </div>            
-                <img src={botaoflut} alt="botao-verde-de-adicionar" class="btnflut"/>
-
         </div>
-
-
-
-           
         <div id="ListaContainer">
           <ul id="ListaCorpo">
             {listInfo && <h1 id="infoL">Ainda vazio!</h1>}
@@ -103,7 +102,13 @@ function Lista({ list, setList }) {
               </li>
             ))}
           </ul>
+         
         </div>
+        <img src={BotaoAdicionar} alt="botao-verde-de-adicionar"
+          id="BotaoFlutuante" 
+          onClick={() => setAberto(!aberto)}
+          />
+        
       </div>
     </>
   );

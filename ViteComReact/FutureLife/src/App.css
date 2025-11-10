@@ -112,9 +112,9 @@ p {
 /* Containers */
 #itensAdicionar,
 #ListaContainer {
-  width: 880px;
-  margin: 30px auto;
-  padding: 15px;
+  width: 80vw;
+  margin: 32px auto;
+  padding: 16px;
   box-sizing: border-box;
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
@@ -249,8 +249,8 @@ ul {
     flex-wrap: wrap;
     gap: 32px;
     background-color: #fff;
-    min-width: 824px;
-    min-height: 380px;
+    min-width: 48rem;
+    min-height: 20vh;
     margin-top: -150px;
     border-radius: 12px;
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
@@ -317,29 +317,32 @@ ul {
     font-size: 72px;
     font-family: Roboto;
     font-weight: bold;
-    margin-bottom: 4px;
+    margin: 2rem;
   }
 
   #adicionar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-top: -32px;
-  
   }
 #itensAdicionar {
   all: unset;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 60px;
+  margin-top: 9vh;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  transform: translateY(-10px);
+  opacity: 0;
   background-color: rgb(255, 255, 255);
-  width: 600px;
-  height: 300px;
+  min-width: 86vw;
+  min-height: 30vh;
   box-shadow: 0px 3px 20px rgb(155, 155, 155);
-  border-radius: 15px;
+  border-radius: 16px;
   z-index: 10;
   padding: 20px;
 }
@@ -347,34 +350,38 @@ ul {
 .inputs-lado-a-lado {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
+  align-items: flex-start;
+  gap: 32px;
+}
+.campo h1{
+  font-family: Lato;
+  color: #000000;
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 8px;
 }
 
 .input-valor,
 .input-descricao {
-  height: 42px;
-  padding: 0 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.input-valor {
-  width: 150px;
-}
-
-.input-descricao {
-  width: 200px;
+  
+  min-width: 32vw;
+  min-height: 4vh;
+  font-size: 1.2rem;
+  border: 2px solid #000000;
+  border-radius: 24px;
 }
 
 .radios-botao {
   display: flex;
+  margin-top: -24px ;
+  margin-bottom: 4vh;
+  transform: scale(2);
+  font-size: 20px;
+  accent-color: #007e1b;
   justify-content: center;
   align-items: center;
-  gap: 20px;
-  width: 100%;
+  gap: 32px;
+  
 }
 
 #itensAdicionar label {
@@ -384,28 +391,50 @@ ul {
 }
 
 #enviar {
-  border-radius: 21px;
-  width: 95px;
-  height: 42px;
+  border-radius: 16px;
+  min-width: 34vw;
+  min-height: 96px;
+  font-size: 40px;
+  font-family: Lato;
+  font-weight: bold;
+  margin-top: -32px;
   background-color: #007e1b;
   color: white;
   border: none;
   cursor: pointer;
+  box-shadow: 0 8px 24px rgb(151, 151, 151);
   font-weight: bold;
 }
 
-.btnflut{
-  width: 57px;
-  position: fixed;
+#enviar:hover{
+  background-color: #049a24;
+  transform: scale(1.03);
 }
   #ListaContainer {
-    min-height: 824px;
+    position: relative;
+    max-height: 54vh !important;
+    min-height: 54vh !important;
+    min-width: 16rem;
+    overflow-y: auto;
     border-radius: 12px;
     box-shadow: 0px 8px 48px rgb(155, 155, 155);
+    scrollbar-width: thin;
   }
 
   #infoL {
     color: #0000007c;
     font-family: Lato;
   }
+  #BotaoFlutuante{
+    position: fixed;
+    margin: 32px auto;
+    margin-top: 56rem;
+    margin-left: 34rem;
+    z-index: 9999;
+  }
+  #itensAdicionar.aberto {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
 }
