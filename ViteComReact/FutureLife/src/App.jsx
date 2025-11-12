@@ -23,6 +23,7 @@ function App() {
 
   return (
     <>
+      <link rel="icon" href="/logo.png" />
       <Cabecalho />
       <Box list={list} />
       <Lista list={list} setList={updateList} /> 
