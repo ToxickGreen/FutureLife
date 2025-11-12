@@ -133,8 +133,13 @@ function Lista({ list, setList }) {
                     {item.tipo === "entrada" ? "+" : "-"}R$ {item.valor.toFixed(2)}
                   </span>
                   <button onClick={() => deleteItem(item.id)} className={styles["btn-delete"]}>
-                    <img src={IconeLixeira} alt="Excluir" className={styles["icon-lixeira"]} />
-                  </button>
+               <img 
+                  src={IconeLixeira} 
+                 alt="Excluir" 
+                className={styles["icon-lixeira"]}
+                style={{ width: '40px', height: '40px' }}
+               />
+</button>
                 </div>
               </li>
             ))}

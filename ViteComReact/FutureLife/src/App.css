@@ -146,6 +146,7 @@ p {
   max-width: 100%;
 }
 
+
 .date {
   font-size: 14px;
   color: #6b7280;
@@ -157,10 +158,12 @@ p {
   flex-direction: row;
   align-items: center;
   gap: 12px;
+
+  
 }
 
 .valor {
-  font-size: 18px;
+  font-size: 36px;
   font-weight: 700;
 }
 
@@ -183,24 +186,17 @@ ul {
   margin-bottom: 150px;
 }
 
-/* ===== ÁREA DE ADIÇÃO ===== */
 
-
-
-
-
-/* radios + botão */
-
-
-  #BotaoFlutuante {
+   #BotaoFlutuante {
     position: fixed;
-    bottom: 40px ;
-    right: 40px;
+    bottom: 130px ;
+    right: 130px;
     z-index: 9999;
     cursor: pointer;
     background-color: transparent;
     border: none;
   }
+
   
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1150px) {
@@ -211,6 +207,7 @@ ul {
 
   #logo {
     margin-bottom: 64px;
+
   }
 
   #AreaDeContas {
@@ -268,13 +265,16 @@ ul {
     font-size: 40px;
   }
 
+ 
+
   .valorConta {
     font-family: Lato;
     font-weight: bold;
-    font-size: 32px;
+    font-size: 40px;
   }
-
-  #saldo .valorConta {
+ 
+  
+#saldo .valorConta {
     all: unset;
     font-family: Lato;
     font-size: 64px;
