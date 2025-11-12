@@ -3,6 +3,7 @@ import BotaoAdicionar from '../components/img/BotaoAdicionar.png';
 import IconeEntrada from '../components/img/BtEntradaPequeno.png';
 import IconeSaida from '../components/img/BtSaidaPequeno.png';
 import IconeLixeira from '../components/img/bin.png'; // Adicione sua imagem aqui
+import styles from '../Lista.module.css';
 
 function Lista({ list, setList }) {
   const [desc, setDesc] = useState("");
@@ -55,25 +56,25 @@ function Lista({ list, setList }) {
 
   return (
     <>
-      <div id="adicionar">
-        <h1 id="titleList">Histórico</h1>
+      <div className={styles.adicionar}>
+        <h1 className={styles.titleList}>Lançamentos</h1>
 
-        <div id="itensAdicionar" className={aberto ? "aberto" : ""} ref={modalRef}>
-          <div className="inputs-lado-a-lado">
-            <div className="campo">
+        <div className={`${styles.itensAdicionar} ${aberto ? styles.aberto : ""}`}>
+          <div className={styles["inputs-lado-a-lado"]}>
+            <div className={styles.inputDataType}>
               <h1>Valor</h1>
               <input
-                className="input-valor"
+                className={styles.inputValor}
                 type="number"
                 value={valor}
                 onChange={(e) => setValor(e.target.value)}
               />
             </div>
 
-            <div className="campo">
+            <div className={styles.inputDataType}>
               <h1>Descrição</h1>
               <input
-                className="input-descricao"
+                className={styles["input-descricao"]}
                 type="text"
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
@@ -81,7 +82,7 @@ function Lista({ list, setList }) {
             </div>
           </div>
 
-          <div className="radios-botao">
+          <div className={styles["radios-botao"]}>
             <label>
               <input
                 type="radio"
@@ -102,51 +103,50 @@ function Lista({ list, setList }) {
               Saída
             </label>
           </div>
-          
-          <button onClick={itemLista} id="enviar">
+
+          <button onClick={itemLista} className={styles.enviar}>
             Enviar
           </button>
         </div>
 
-        <div id="ListaContainer">
-          <ul id="ListaCorpo">
-            {listInfo && <h1 id="infoL">Ainda vazio!</h1>}
+        <div className={styles.ListaContainer}>
+          <ul className={styles.ListaCorpo}>
+            {listInfo && <h1 className={styles.infoL}>Ainda sem lançamentos!</h1>}
 
             {list.map((item) => (
-              <li key={item.id} className="transaction-item">
-                <div className={`icon-box ${item.tipo}`}>
-                  <img 
-                    src={item.tipo === "entrada" ? IconeEntrada : IconeSaida} 
+              <li key={item.id} className={styles.transactionItem}>
+                <div className={`${styles.iconBox} ${item.tipo === "entrada" ? styles.entrada : styles.saida}`}>
+                  <img
+                    src={item.tipo === "entrada" ? IconeEntrada : IconeSaida}
                     alt={item.tipo === "entrada" ? "Entrada" : "Saída"}
-                    className="icon-img"
+                    className={styles.iconImg}
                   />
                 </div>
-                
-                <div className="detalhes">
-                  <span className="desc">{item.desc}</span>
-                  <span className="date">{item.data}</span>
+
+                <div className={styles.detalhes}>
+                  <span className={styles.desc}>{item.desc}</span>
+                  <span className={styles.desc}>{item.data}</span>
                 </div>
-                
-                <div className="valor-box">
+
+                <div className={styles["valor-box"]}>
                   <span className={`valor ${item.tipo}`}>
                     {item.tipo === "entrada" ? "+" : "-"}R$ {item.valor.toFixed(2)}
                   </span>
-                  <button onClick={() => deleteItem(item.id)} className="btn-delete">
-                    <img src={IconeLixeira} alt="Excluir" className="icon-lixeira" />
+                  <button onClick={() => deleteItem(item.id)} className={styles["btn-delete"]}>
+                    <img src={IconeLixeira} alt="Excluir" className={styles["icon-lixeira"]} />
                   </button>
                 </div>
               </li>
             ))}
           </ul>
         </div>
-
-        <img 
-          src={BotaoAdicionar} 
-          alt="botao-verde-de-adicionar"
-          id="BotaoFlutuante" 
-          onClick={() => setAberto(!aberto)}
-        />
       </div>
+      <button id="BotaoFlutuante" onClick={() => setAberto(!aberto)}>
+        <img
+          src={BotaoAdicionar}
+          alt="botao-verde-de-adicionar"
+        />
+      </button>
     </>
   );
 }

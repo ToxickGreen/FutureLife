@@ -17,15 +17,17 @@
   box-sizing: border-box;
 }
 
-/* Remove setinhas do input number */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
 
 /* Centralização geral */
 .centralizaItensBox {
@@ -109,57 +111,6 @@ p {
   margin-bottom: 0;
 }
 
-/* Containers */
-#itensAdicionar,
-#ListaContainer {
-  width: 80vw;
-  margin: 32px auto;
-  padding: 16px;
-  box-sizing: border-box;
-  background-color: #fff;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-}
-
-#ListaContainer {
-  overflow-y: auto;
-  max-height: 60vh;
-}
-
-/* Lista - NOVO ESTILO */
-#ListaCorpo {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-#ListaCorpo li.transaction-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  width: 100%;
-  padding: 16px;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-}
-
-/* Ícone da transação */
-.icon-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
 .icon-box.entrada {
   background-color: #dcfce7;
 }
@@ -221,29 +172,7 @@ p {
   color: #dc2626;
 }
 
-.btn-delete {
-  background-color: transparent;
-  color: #ef4444;
-  border: none;
-  padding: 6px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.btn-delete:hover {
-  background-color: #fee2e2;
-  transform: scale(1.1);
-}
-
-.icon-lixeira {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
 
 /* Reset UL */
 ul {
@@ -255,75 +184,24 @@ ul {
 }
 
 /* ===== ÁREA DE ADIÇÃO ===== */
-#itensAdicionar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px;
-  margin-top: 60px;
-  padding: 20px;
-  background-color: #fff;
-  max-width: 880px;
-  margin: 30px auto;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-}
 
-/* inputs lado a lado */
-.inputs-lado-a-lado {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  width: 100%;
-}
 
-.text-input {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  width: 300px;
-  transition: all 0.2s ease;
-}
 
-.text-input:focus {
-  border-color: #007e1b;
-  outline: none;
-  box-shadow: 0 0 4px rgba(0, 126, 27, 0.5);
-}
+
 
 /* radios + botão */
-.radios-botao {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
 
-#itensAdicionar label {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: 500;
-}
 
-#itensAdicionar button {
-  background-color: #007e1b;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
-
-#itensAdicionar button:hover {
-  background-color: #049a24;
-}
-
+  #BotaoFlutuante {
+    position: fixed;
+    bottom: 40px ;
+    right: 40px;
+    z-index: 9999;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+  
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1150px) {
   #Cabecalho {
@@ -402,135 +280,5 @@ ul {
     font-size: 64px;
     font-weight: bold;
     color: rgba(91, 224, 120, 100);
-  }
-
-  #titleList {
-    font-size: 72px;
-    font-family: Roboto;
-    font-weight: bold;
-    margin: 2rem;
-  }
-
-  #adicionar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -32px;
-  }
-
-  #itensAdicionar {
-    all: unset;
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    margin-top: 9vh;
-    position: fixed;
-    transition: all 0.3s ease;
-    transform: translateY(-10px);
-    opacity: 0;
-    background-color: rgb(255, 255, 255);
-    min-width: 86vw;
-    min-height: 30vh;
-    box-shadow: 0px 3px 20px rgb(155, 155, 155);
-    border-radius: 16px;
-    z-index: 10;
-    padding: 20px;
-  }
-
-  .inputs-lado-a-lado {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 32px;
-  }
-
-  .campo h1 {
-    font-family: Lato;
-    color: #000000;
-    font-size: 32px;
-    text-align: left;
-    margin-bottom: 8px;
-  }
-
-  .input-valor,
-  .input-descricao {
-    min-width: 32vw;
-    min-height: 4vh;
-    font-size: 1.2rem;
-    border: 2px solid #000000;
-    border-radius: 24px;
-    padding: 8px 16px;
-  }
-
-  .radios-botao {
-    display: flex;
-    margin-top: -24px;
-    margin-bottom: 4vh;
-    transform: scale(2);
-    font-size: 20px;
-    accent-color: #007e1b;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-  }
-
-  #itensAdicionar label {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-
-  #enviar {
-    border-radius: 16px;
-    min-width: 34vw;
-    min-height: 96px;
-    font-size: 40px;
-    font-family: Lato;
-    font-weight: bold;
-    margin-top: -32px;
-    background-color: #007e1b;
-    color: white;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 8px 24px rgb(151, 151, 151);
-    font-weight: bold;
-  }
-
-  #enviar:hover {
-    background-color: #049a24;
-    transform: scale(1.03);
-  }
-
-  #ListaContainer {
-    position: relative;
-    max-height: 54vh !important;
-    min-height: 54vh !important;
-    min-width: 16rem;
-    overflow-y: auto;
-    border-radius: 12px;
-    box-shadow: 0px 8px 48px rgb(155, 155, 155);
-    scrollbar-width: thin;
-  }
-
-  #infoL {
-    color: #0000007c;
-    font-family: Lato;
-  }
-
-  #BotaoFlutuante {
-    position: fixed;
-    margin: 32px auto;
-    margin-top: 56rem;
-    margin-left: 34rem;
-    z-index: 9999;
-    cursor: pointer;
-  }
-
-  #itensAdicionar.aberto {
-    display: flex;
-    opacity: 1;
-    transform: translateY(0);
   }
 }
