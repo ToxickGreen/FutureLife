@@ -43,6 +43,15 @@ input[type=number] {
   align-items: center;
   gap: 120px;
 }
+#entradaBox{
+  color: #5BE078;
+}
+#saida{
+  order: 3;
+}
+#saidaBox{
+  color: #FA6F6F;
+}
 
 /* Card */
 .compcontas {
@@ -74,7 +83,7 @@ input[type=number] {
 /* Cabeçalho */
 #Cabecalho {
   background-color: #007e1b;
-  height: 145px;
+  height: 96px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -84,11 +93,10 @@ input[type=number] {
 }
 
 #logo {
-  font-family: 'Roboto';
-  font-size: 40px;
-  color: white;
-  font-weight: 700;
-  margin: 0;
+  margin-top: 16px;
+  width: 24rem;
+  height: 24rem;
+
 }
 
 #logomoedas {
@@ -197,9 +205,15 @@ ul {
     border: none;
   }
 
+  .mobileOnly{
+    display: none;
+  }
   
 /* ===== RESPONSIVIDADE ===== */
 @media (max-width: 1150px) {
+    .mobileOnly{
+    display: block;
+  }
   #Cabecalho {
     width: 100%;
     height: 336px;
@@ -213,15 +227,19 @@ ul {
   #AreaDeContas {
     display: flex;
     flex-wrap: wrap;
+    overflow-wrap: break-word;
     gap: 32px;
     background-color: #fff;
     min-width: 48rem;
+    max-width: 48rem;
     min-height: 20vh;
+    max-height: 20vh;
     margin-top: -150px;
     border-radius: 12px;
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
     color: black;
   }
+
 
   .compcontas {
     all: unset;

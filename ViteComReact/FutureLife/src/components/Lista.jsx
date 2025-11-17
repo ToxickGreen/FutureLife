@@ -62,7 +62,7 @@ function Lista({ list, setList }) {
         <div className={`${styles.itensAdicionar} ${aberto ? styles.aberto : ""}`}>
           <div className={styles["inputs-lado-a-lado"]}>
             <div className={styles.inputDataType}>
-              <h1>Valor</h1>
+              <h1 className={styles.titleInput}>Valor</h1>
               <input
                 className={styles.inputValor}
                 type="number"
@@ -72,7 +72,7 @@ function Lista({ list, setList }) {
             </div>
 
             <div className={styles.inputDataType}>
-              <h1>Descrição</h1>
+              <h1 className={styles.titleInput}>Descrição</h1>
               <input
                 className={styles["input-descricao"]}
                 type="text"
@@ -133,23 +133,24 @@ function Lista({ list, setList }) {
                     {item.tipo === "entrada" ? "+" : "-"}R$ {item.valor.toFixed(2)}
                   </span>
                   <button onClick={() => deleteItem(item.id)} className={styles["btn-delete"]}>
-               <img 
-                  src={IconeLixeira} 
-                 alt="Excluir" 
-                className={styles["icon-lixeira"]}
-                style={{ width: '40px', height: '40px' }}
-               />
-</button>
+                      <img 
+                        src={IconeLixeira} 
+                        alt="Excluir" 
+                        className={styles["icon-lixeira"]}
+                        style={{ width: '40px', height: '40px' }}
+                      />
+                  </button>
                 </div>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <button id="BotaoFlutuante" onClick={() => setAberto(!aberto)}>
+      <button id="BotaoFlutuante" className={styles.MobileOn} onClick={() => setAberto(!aberto)}>
         <img
           src={BotaoAdicionar}
           alt="botao-verde-de-adicionar"
+         
         />
       </button>
     </>

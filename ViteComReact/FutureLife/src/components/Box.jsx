@@ -20,15 +20,15 @@ function Box({ list }) {
         <div id="CentralizarContas">
           <div id="AreaDeContas">
             <div id="entr">
-              <img src={BtEntradaPequeno} />
-                <div className="compcontas">
+              <img src={BtEntradaPequeno} className='mobileOnly'/>
+                <div className="compcontas" id="entradaBox">
                   <p className="tituloConta">Entrada</p>
                   <h2 className="valorConta">R${entrada}</h2>
                 </div>
             </div>
             <div id="saida">
-              <img src={BtSaidaPequeno} />
-              <div className="compcontas">
+              <img src={BtSaidaPequeno} className='mobileOnly' id="saidaBox"/>
+              <div className="compcontas" id="saidaBox">
                 <p className="tituloConta">Saída</p>
                 <h2 className="valorConta">R${saida}</h2>
               </div>
