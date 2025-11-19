@@ -1,4 +1,3 @@
-
 .btn-delete {
   background-color: transparent;
   color: #ef4444;
@@ -10,6 +9,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 10;
+  position: relative;
 }
 
 .btn-delete:hover {
@@ -18,8 +19,8 @@
 }
 
 .icon-lixeira {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
 }
 
@@ -34,21 +35,22 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
 }
-  .adicionar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -32px;
-    position: relative;
-  }
 
-  .titleList {
-    display: none;
-    font-size: 32px;
-    font-family: Roboto;
-    font-weight: bold;
-    margin: 2rem;
-  }
+.adicionar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -32px;
+  position: relative;
+}
+
+.titleList {
+  display: none;
+  font-size: 32px;
+  font-family: Roboto;
+  font-weight: bold;
+  margin: 2rem;
+}
 
 .ListaContainer {
   width: 42vw;
@@ -59,14 +61,18 @@
   background-color: #fff;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
   border-radius: 8px;
+  overflow-y: auto;
+  max-height: 60vh;
 }
+
 .itensAdicionar label {
   display: flex;
   align-items: center;
   gap: 5px;
   font-weight: 500;
 }
-.titleInput{
+
+.titleInput {
   font-size: 16px;
   margin-bottom: 2px;
   text-align: left;
@@ -87,11 +93,6 @@
   background-color: #049a24;
 }
 
-.ListaContainer {
-  overflow-y: auto;
-  max-height: 60vh;
-}
-/* Lista - NOVO ESTILO */
 .ListaCorpo {
   padding: 0;
   margin: 0;
@@ -100,11 +101,12 @@
   flex-direction: column;
   gap: 12px;
 }
+
 .infoL {
-    color: #0000007c;
-    font-size: 16px;
-    font-family: Lato;
-  }
+  color: #0000007c;
+  font-size: 16px;
+  font-family: Lato;
+}
 
 .transactionItem {
   display: flex;
@@ -118,8 +120,23 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   box-sizing: border-box;
   font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
 }
-/* lado esquerdo = ícone + descrição + data */
+
+.transactionItem:hover {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+}
+
+.transactionItem.expandido {
+  overflow: visible;
+  align-items: flex-start;
+  background-color: #f9fafb;
+  box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.2);
+}
+
 .iconBox {
   width: 48px;
   height: 48px;
@@ -130,43 +147,90 @@
   flex-shrink: 0;
   overflow: hidden;
 }
+
 .detalhes {
   display: flex;
-  flex-direction: column; /* empilha desc e data */
+  flex-direction: column;
   justify-content: center;
   gap: 4px;
-  flex: 1; /* ocupa o espaço restante */
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
 }
+
+.transactionItem.expandido .detalhes {
+  overflow: visible;
+}
+
 .desc {
   font-family: Roboto;
   color: #2f2f2f;
   font-size: 16px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.desc.expandida {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow: visible !important;
+  text-overflow: unset !important;
 }
 
 .data {
-  font-size: 0.9rem;
+  font-size: 14px;
+  color: #6b7280;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.3s ease;
 }
+
+.data.expandida {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow: visible !important;
+}
+
 .valor-box {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.transactionItem.expandido .valor-box {
+  overflow: visible;
 }
 
 .valor {
   font-weight: bold;
   font-size: 1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+
+.valor.expandida {
+  white-space: normal !important;
+  word-break: break-word;
+  overflow: visible !important;
+  text-overflow: unset !important;
 }
 
 .valor.entrada {
-  color: #16a34a; /* verde */
+  color: #16a34a;
 }
 
 .valor.saida {
-  color: #dc2626; /* vermelho */
+  color: #dc2626;
 }
 
-
-/* inputs lado a lado */
 .inputs-lado-a-lado {
   display: flex;
   justify-content: center;
@@ -175,7 +239,6 @@
   flex-wrap: wrap;
   width: 100%;
 }
-
 
 .text-input {
   padding: 10px;
@@ -191,6 +254,7 @@
   outline: none;
   box-shadow: 0 0 4px rgba(0, 126, 27, 0.5);
 }
+
 .radios-botao {
   order: -8;
   display: flex;
@@ -200,11 +264,9 @@
   gap: 12px;
 }
 
-.MobileOn{
+.MobileOn {
   display: none;
 }
-
-
 
 @media (max-width: 1150px) {
   .itensAdicionar {
@@ -224,22 +286,41 @@
     min-height: 30vh;
     box-shadow: 0px 3px 20px rgb(155, 155, 155);
     border-radius: 16px;
-    z-index: 10;
+    z-index: 10000;
     padding: 20px;
   }
-  .titleList{
+
+  .titleList {
     display: block;
   }
-  .MobileOn{
-  display: block;
-}
-  .desc {
-  font-family: Roboto;
-  color: #2f2f2f;
-  font-size: 2rem;
-}
 
-    .ListaContainer {
+  .MobileOn {
+    display: block;
+  }
+
+  .desc {
+    font-family: Roboto;
+    color: #2f2f2f;
+    font-size: 2rem;
+  }
+
+  .data {
+    font-size: 1.5rem !important;
+    color: #6b7280;
+  }
+
+  .valor {
+    font-size: 2rem !important;
+    font-weight: bold;
+  }
+
+  .icon-lixeira {
+    width: 56px !important;
+    height: 56px !important;
+    object-fit: contain;
+  }
+
+  .ListaContainer {
     position: relative;
     width: 80vw;
     max-height: 54vh !important;
@@ -250,7 +331,8 @@
     box-shadow: 0px 8px 48px rgb(155, 155, 155);
     scrollbar-width: thin;
   }
-   .itensAdicionar label {
+
+  .itensAdicionar label {
     display: flex;
     align-items: center;
     gap: 4px;
@@ -288,7 +370,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-  
+
   .inputs-lado-a-lado {
     display: flex;
     order: -8;
@@ -300,16 +382,17 @@
   .inputDataType h1 {
     font-family: Lato;
     color: #000000;
-    font-size: 32px;
+    font-size: 36px;
     text-align: left;
     margin-bottom: 8px;
   }
+  
 
   .inputValor,
   .input-descricao {
     min-width: 348px;
-    height:54px;
-    font-size: 1.2rem;
+    height: 54px;
+    font-size: 2rem;
     border: 2px solid #000000;
     border-radius: 24px;
     padding: 8px 16px;

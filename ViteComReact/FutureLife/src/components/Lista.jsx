@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import BotaoAdicionar from '../components/img/BotaoAdicionar.png';
 import IconeEntrada from '../components/img/BtEntradaPequeno.png';
 import IconeSaida from '../components/img/BtSaidaPequeno.png';
-import IconeLixeira from '../components/img/bin.png'; // Adicione sua imagem aqui
+import IconeLixeira from '../components/img/bin.png';
 import styles from '../Lista.module.css';
 
 function Lista({ list, setList }) {
@@ -10,11 +10,11 @@ function Lista({ list, setList }) {
   const [valor, setValor] = useState("");
   const [tipo, setTipo] = useState("entrada");
   const [aberto, setAberto] = useState(false);
+  const [itensExpandidos, setItensExpandidos] = useState(new Set());
   const modalRef = useRef(null);
 
   const listInfo = list.length === 0;
 
-  // Fechar modal ao clicar fora da caixa de adicionar ->antes teriamos q inserir algo para fechar
   useEffect(() => {
     function handleClickOutside(event) {
       if (modalRef.current && !modalRef.current.contains(event.target) && aberto) {
@@ -35,7 +35,7 @@ function Lista({ list, setList }) {
     if (!desc || !valor) return;
 
     const novo = {
-      id: list.length + 1,
+      id: list.length > 0 ? Math.max(...list.map(item => item.id)) + 1 : 1,
       data: new Date().toLocaleDateString("pt-BR"),
       desc,
       valor: Number(valor),
@@ -49,9 +49,27 @@ function Lista({ list, setList }) {
     setAberto(false);
   };
 
-  function deleteItem(id) {
+  function deleteItem(id, event) {
+    event.stopPropagation();
     const newList = list.filter((item) => item.id !== id);
     setList(newList);
+    setItensExpandidos(prev => {
+      const newSet = new Set(prev);
+      newSet.delete(id);
+      return newSet;
+    });
+  }
+
+  function alternarExpansao(id) {
+    setItensExpandidos(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(id)) {
+        newSet.delete(id);
+      } else {
+        newSet.add(id);
+      }
+      return newSet;
+    });
   }
 
   return (
@@ -59,7 +77,10 @@ function Lista({ list, setList }) {
       <div className={styles.adicionar}>
         <h1 className={styles.titleList}>Lançamentos</h1>
 
-        <div className={`${styles.itensAdicionar} ${aberto ? styles.aberto : ""}`}>
+        <div 
+          className={`${styles.itensAdicionar} ${aberto ? styles.aberto : ""}`}
+          ref={modalRef}
+        >
           <div className={styles["inputs-lado-a-lado"]}>
             <div className={styles.inputDataType}>
               <h1 className={styles.titleInput}>Valor</h1>
@@ -113,44 +134,58 @@ function Lista({ list, setList }) {
           <ul className={styles.ListaCorpo}>
             {listInfo && <h1 className={styles.infoL}>Ainda sem lançamentos!</h1>}
 
-            {list.map((item) => (
-              <li key={item.id} className={styles.transactionItem}>
-                <div className={`${styles.iconBox} ${item.tipo === "entrada" ? styles.entrada : styles.saida}`}>
-                  <img
-                    src={item.tipo === "entrada" ? IconeEntrada : IconeSaida}
-                    alt={item.tipo === "entrada" ? "Entrada" : "Saída"}
-                    className={styles.iconImg}
-                  />
-                </div>
+            {list.map((item) => {
+              const estaExpandido = itensExpandidos.has(item.id);
+              
+              return (
+                <li 
+                  key={item.id} 
+                  className={`${styles.transactionItem} ${estaExpandido ? styles.expandido : ''}`}
+                  onClick={() => alternarExpansao(item.id)}
+                >
+                  <div className={`${styles.iconBox} ${item.tipo === "entrada" ? styles.entrada : styles.saida}`}>
+                    <img
+                      src={item.tipo === "entrada" ? IconeEntrada : IconeSaida}
+                      alt={item.tipo === "entrada" ? "Entrada" : "Saída"}
+                      className={styles.iconImg}
+                    />
+                  </div>
 
-                <div className={styles.detalhes}>
-                  <span className={styles.desc}>{item.desc}</span>
-                  <span className={styles.desc}>{item.data}</span>
-                </div>
+                  <div className={styles.detalhes}>
+                    <span className={`${styles.desc} ${estaExpandido ? styles.expandida : ''}`}>
+                      {item.desc}
+                    </span>
+                    <span className={`${styles.data} ${estaExpandido ? styles.expandida : ''}`}>
+                      {item.data}
+                    </span>
+                  </div>
 
-                <div className={styles["valor-box"]}>
-                  <span className={`valor ${item.tipo}`}>
-                    {item.tipo === "entrada" ? "+" : "-"}R$ {item.valor.toFixed(2)}
-                  </span>
-                  <button onClick={() => deleteItem(item.id)} className={styles["btn-delete"]}>
+                  <div className={styles["valor-box"]}>
+                    <span className={`${styles.valor} ${styles[item.tipo]} ${estaExpandido ? styles.expandida : ''}`}>
+                      {item.tipo === "entrada" ? "+" : "-"}R$ {item.valor.toFixed(2)}
+                    </span>
+                    <button 
+                      onClick={(e) => deleteItem(item.id, e)} 
+                      className={styles["btn-delete"]}
+                    >
                       <img 
                         src={IconeLixeira} 
                         alt="Excluir" 
                         className={styles["icon-lixeira"]}
-                        style={{ width: '40px', height: '40px' }}
                       />
-                  </button>
-                </div>
-              </li>
-            ))}
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
+      
       <button id="BotaoFlutuante" className={styles.MobileOn} onClick={() => setAberto(!aberto)}>
         <img
           src={BotaoAdicionar}
           alt="botao-verde-de-adicionar"
-         
         />
       </button>
     </>
