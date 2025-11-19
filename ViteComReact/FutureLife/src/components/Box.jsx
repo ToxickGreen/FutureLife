@@ -17,18 +17,18 @@ function Box({ list }) {
 
   const saldo = entrada - saida;
 
-  // Função para formatar valores de forma legível
+ 
   const formatarValor = (valor) => {
     const valorAbs = Math.abs(valor);
     
     if (valorAbs >= 1000000) {
-      // Acima de 1 milhão: mostra com 1 casa decimal
+    
       return `R$ ${(valor / 1000000).toFixed(1)} mi`;
     } else if (valorAbs >= 100000) {
-      // Entre 100k e 1mi: mostra em milhares com 1 casa
+   
       return `R$ ${(valor / 1000).toFixed(1)} mil`;
     } else {
-      // Abaixo de 100k: mostra valor completo com separador de milhar
+ 
       return `R$ ${valor.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
     }
   };
@@ -43,7 +43,7 @@ function Box({ list }) {
         <div id="CentralizarContas">
           <div id="AreaDeContas">
             
-            {/* Saldo no topo */}
+            {}
             <div id="saldo" onClick={() => setMostrarDetalhes(!mostrarDetalhes)}>
               <div className="compcontas">
                 <p className="tituloConta">Saldo</p>
@@ -53,7 +53,7 @@ function Box({ list }) {
               </div>
             </div>
 
-            {/* Container para Entrada e Saída */}
+            {}
             <div id="containerEntradaSaida">
               <div id="entr" onClick={() => setMostrarDetalhes(!mostrarDetalhes)}>
                 <img src={BtEntradaPequeno} className='mobileOnly' id="iconeEntrada"/>
