@@ -1,3 +1,6 @@
+button {
+  -webkit-tap-highlight-color: transparent;
+}
 .btn-delete {
   background-color: transparent;
   color: #ef4444;
@@ -88,7 +91,6 @@
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
-
 .itensAdicionar button:hover {
   background-color: #049a24;
 }
