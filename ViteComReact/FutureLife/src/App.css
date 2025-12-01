@@ -233,6 +233,17 @@ ul {
   .mobileOnly{
     display: none;
   }
+
+  .saldoPositivo{
+    color: rgba(91, 224, 120, 100);
+  }
+  .saldoNegativo{
+    color: #dc2626;
+
+  }
+  .saldoZero{
+    color: black;
+  }
   
 /* RESPONSIVIDADE */
 @media (max-width: 1150px) {

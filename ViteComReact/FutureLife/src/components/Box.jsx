@@ -47,7 +47,7 @@ function Box({ list }) {
             <div id="saldo" onClick={() => setMostrarDetalhes(!mostrarDetalhes)}>
               <div className="compcontas">
                 <p className="tituloConta">Saldo</p>
-                <h2 className="valorConta">
+                <h2 className={`valorConta ${saldo > 0 ? "saldoPositivo" : saldo < 0 ? "saldoNegativo" : "saldoZero"}`}>
                   {mostrarDetalhes ? formatarValorCompleto(saldo) : formatarValor(saldo)}
                 </h2>
               </div>
