@@ -131,11 +131,13 @@ input[type=number] {
 
 html {
   background-color: #ffffff;
+  touch-action: manipulation;
 }
 
 body {
   margin: 0;
   padding: 0;
+  touch-action: manipulation;
   overflow-x: hidden;
 }
 
