@@ -336,7 +336,6 @@ ul {
     white-space: nowrap;
   }
 
-
   .valorConta {
     font-family: Lato;
     font-weight: bold;
@@ -351,10 +350,12 @@ ul {
     font-family: Lato;
     font-size: clamp(40px, 8vw, 64px);
     font-weight: bold;
-    color: rgba(91, 224, 120, 100);
     max-width: 100%;
     display: block;
     transition: all 0.3s ease;
     cursor: pointer;
   }
+  #saldo .saldoPositivo { color: rgba(91, 224, 120, 1); }
+  #saldo .saldoNegativo { color: #dc2626; }
+  #saldo .saldoZero { color: black; }
 }
