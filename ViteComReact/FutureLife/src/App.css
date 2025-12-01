@@ -237,10 +237,10 @@ ul {
   }
 
   .saldoPositivo{
-    color: rgba(91, 224, 120, 100);
+   color: #5BE078;
   }
   .saldoNegativo{
-    color: #dc2626;
+   color: #FA6F6F;
 
   }
   .saldoZero{
@@ -357,5 +357,5 @@ ul {
   }
   #saldo .saldoPositivo { color: rgba(91, 224, 120, 1); }
   #saldo .saldoNegativo { color: #dc2626; }
-  #saldo .saldoZero { color: black; }
+#saldo .saldoZero { color: black; }
 }
